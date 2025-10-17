@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -16,10 +17,15 @@ export function Header() {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <motion.header
+      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-serif font-semibold tracking-tight">Radiant Aesthetics</div>
+          <div className="text-2xl font-serif font-semibold tracking-tight">Harmony Studio</div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
@@ -56,39 +62,46 @@ export function Header() {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 flex flex-col gap-4">
-            <button
-              onClick={() => scrollToSection("services")}
-              className="text-left text-foreground/80 hover:text-foreground transition-colors"
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.nav
+              className="md:hidden mt-4 pb-4 flex flex-col gap-4"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
             >
-              Services
-            </button>
-            <button
-              onClick={() => scrollToSection("about")}
-              className="text-left text-foreground/80 hover:text-foreground transition-colors"
-            >
-              About
-            </button>
-            <button
-              onClick={() => scrollToSection("gallery")}
-              className="text-left text-foreground/80 hover:text-foreground transition-colors"
-            >
-              Gallery
-            </button>
-            <button
-              onClick={() => scrollToSection("testimonials")}
-              className="text-left text-foreground/80 hover:text-foreground transition-colors"
-            >
-              Testimonials
-            </button>
-            <Button onClick={() => scrollToSection("contact")} className="w-full">
-              Book Appointment
-            </Button>
-          </nav>
-        )}
+              <button
+                onClick={() => scrollToSection("services")}
+                className="text-left text-foreground/80 hover:text-foreground transition-colors"
+              >
+                Services
+              </button>
+              <button
+                onClick={() => scrollToSection("about")}
+                className="text-left text-foreground/80 hover:text-foreground transition-colors"
+              >
+                About
+              </button>
+              <button
+                onClick={() => scrollToSection("gallery")}
+                className="text-left text-foreground/80 hover:text-foreground transition-colors"
+              >
+                Gallery
+              </button>
+              <button
+                onClick={() => scrollToSection("testimonials")}
+                className="text-left text-foreground/80 hover:text-foreground transition-colors"
+              >
+                Testimonials
+              </button>
+              <Button onClick={() => scrollToSection("contact")} className="w-full">
+                Book Appointment
+              </Button>
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </div>
-    </header>
+    </motion.header>
   )
 }

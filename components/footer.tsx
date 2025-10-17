@@ -4,7 +4,7 @@ export function Footer() {
       <div className="container mx-auto max-w-6xl">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="font-serif text-xl font-semibold mb-4">Radiant Aesthetics</h3>
+            <h3 className="font-serif text-xl font-semibold mb-4">Harmony Studio</h3>
             <p className="text-sm text-muted-foreground">
               Professional aesthetic treatments designed to enhance your natural beauty.
             </p>
@@ -56,7 +56,7 @@ export function Footer() {
           </div>
         </div>
         <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Radiant Aesthetics. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Harmony Studio. All rights reserved.</p>
         </div>
       </div>
     </footer>

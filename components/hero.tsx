@@ -1,6 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion"
 
 export function Hero() {
   const scrollToContact = () => {
@@ -14,9 +15,14 @@ export function Hero() {
     <section className="pt-32 pb-20 px-4">
       <div className="container mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-light leading-tight text-balance">
-              Reveal Your Natural Radiance
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+              Harmony Studio
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
               Experience personalized aesthetic treatments designed to enhance your natural beauty. Expert care, proven
@@ -37,14 +43,20 @@ export function Hero() {
                 View Services
               </Button>
             </div>
-          </div>
-          <div className="relative h-[500px] lg:h-[600px] rounded-lg overflow-hidden">
+          </motion.div>
+
+          <motion.div
+            className="relative h-[500px] lg:h-[600px] rounded-lg overflow-hidden"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          >
             <img
               src="/elegant-spa-treatment-room-with-soft-lighting-and-.jpg"
               alt="Aesthetic treatment room"
               className="w-full h-full object-cover"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
