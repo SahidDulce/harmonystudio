@@ -31,26 +31,26 @@ export function About() {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h2 className="font-serif text-4xl md:text-5xl font-light">Expert Care, Personal Touch</h2>
+            <h2 className="font-serif text-4xl md:text-5xl font-light">Meet Margarita</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                With over 15 years of experience in aesthetic treatments, we bring expertise, passion, and personalized
-                care to every client.
+                As a licensed esthetician with a passion for skincare, I'm dedicated to helping you achieve your best
+                skin through personalized treatments and expert care.
               </p>
               <p>
-                Our approach combines proven techniques with the latest innovations in skincare, ensuring you receive
-                treatments that are both effective and tailored to your unique needs.
+                Located in beautiful Hamilton, New Jersey, I combine advanced techniques with a warm, welcoming
+                approach to create a relaxing experience that delivers real results.
               </p>
               <p>
-                We believe that true beauty comes from confidence, and our mission is to help you feel your absolute
-                best in your own skin.
+                Whether you're looking to address specific skin concerns or simply maintain healthy, glowing skin, I'm
+                here to guide you on your skincare journey with customized treatments designed just for you.
               </p>
             </div>
 
             <div className="grid grid-cols-3 gap-6 pt-6">
               {[
-                { value: "15+", label: "Years Experience" },
-                { value: "500+", label: "Happy Clients" },
+                { value: "10+", label: "Years Experience" },
+                { value: "1000+", label: "Happy Clients" },
                 { value: "100%", label: "Satisfaction" },
               ].map((stat, index) => (
                 <motion.div

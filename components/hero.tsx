@@ -21,12 +21,11 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-light leading-tight text-balance">
               Harmony Studio
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-              Experience personalized aesthetic treatments designed to enhance your natural beauty. Expert care, proven
-              results, and a commitment to your confidence.
+              Your sanctuary for beauty and wellness. Experience professional care tailored to your unique needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button size="lg" onClick={scrollToContact}>
@@ -52,9 +51,9 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
             <img
-              src="/elegant-spa-treatment-room-with-soft-lighting-and-.jpg"
-              alt="Aesthetic treatment room"
-              className="w-full h-full object-cover"
+              src="/camilla.jpg"
+              alt="Harmony Studio treatment room"
+              className="w-full h-full object-cover object-[center_20%]"
             />
           </motion.div>
         </div>

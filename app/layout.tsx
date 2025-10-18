@@ -16,7 +16,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Radiant Aesthetics | Professional Skincare & Beauty Treatments",
+  title: " Harmony Studio",
   description:
     "Experience personalized aesthetic treatments with expert care. Specializing in facials, skincare, and beauty services.",
   generator: "v0.app",

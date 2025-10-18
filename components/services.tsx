@@ -1,7 +1,7 @@
 "use client"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Sparkles, Heart, Droplet, Sun } from "lucide-react"
+import { Sparkles, Heart, Droplet, Sun, Zap, Star } from "lucide-react"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
@@ -9,27 +9,39 @@ import { useRef } from "react"
 const services = [
   {
     icon: Sparkles,
-    title: "Signature Facials",
-    description: "Customized facial treatments tailored to your unique skin needs and goals.",
-    price: "From $85",
+    title: "Custom Facials",
+    description: "Personalized facial treatments designed for your specific skin type and concerns.",
+    price: "From $90",
   },
   {
     icon: Heart,
     title: "Anti-Aging Treatments",
-    description: "Advanced techniques to reduce fine lines and restore youthful radiance.",
-    price: "From $120",
+    description: "Advanced skincare solutions to reduce fine lines, wrinkles, and restore youthful glow.",
+    price: "From $130",
   },
   {
     icon: Droplet,
-    title: "Hydration Therapy",
-    description: "Deep moisturizing treatments for plump, glowing, healthy skin.",
-    price: "From $95",
+    title: "Hydrafacial",
+    description: "Deep cleansing and hydration treatment for instantly radiant, refreshed skin.",
+    price: "From $150",
+  },
+  {
+    icon: Zap,
+    title: "Chemical Peels",
+    description: "Professional peels to improve texture, tone, and overall skin appearance.",
+    price: "From $100",
   },
   {
     icon: Sun,
-    title: "Skin Rejuvenation",
-    description: "Comprehensive treatments to refresh and revitalize your complexion.",
+    title: "Microdermabrasion",
+    description: "Exfoliating treatment to reveal smoother, brighter, more even-toned skin.",
     price: "From $110",
+  },
+  {
+    icon: Star,
+    title: "Dermaplaning",
+    description: "Gentle exfoliation to remove dead skin and peach fuzz for a flawless complexion.",
+    price: "From $85",
   },
 ]
 
@@ -52,7 +64,7 @@ export function Services() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <motion.div
               key={service.title}

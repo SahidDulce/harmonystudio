@@ -9,12 +9,11 @@ export function Gallery() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   const images = [
-    { query: "before and after facial treatment results", alt: "Treatment results 1" },
-    { query: "glowing skin after aesthetic treatment", alt: "Treatment results 2" },
-    { query: "professional skincare products display", alt: "Products" },
-    { query: "relaxing spa treatment room interior", alt: "Treatment room" },
-    { query: "aesthetic facial treatment in progress", alt: "Treatment session" },
-    { query: "natural skincare ingredients and tools", alt: "Natural ingredients" },
+    { src: "/1.jpg", alt: "Treatment results 1" },
+    { src: "/2.jpg", alt: "Treatment results 2" },
+    { src: "/3.jpg", alt: "Treatment results 3" },
+    { src: "/4.jpg", alt: "Treatment results 4" },
+    { src: "/5.jpg", alt: "Treatment results 5" },
   ]
 
   return (
@@ -40,7 +39,7 @@ export function Gallery() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <img
-                src={`/.jpg?height=400&width=400&query=${image.query}`}
+                src={image.src}
                 alt={image.alt}
                 className="w-full h-full object-cover transition-transform group-hover:scale-105"
               />
