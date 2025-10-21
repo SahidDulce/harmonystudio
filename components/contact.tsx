@@ -8,10 +8,12 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
+import { useLanguage } from "@/contexts/language-context"
 
 export function Contact() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const { t } = useLanguage()
 
   return (
     <section id="contact" className="py-20 px-4 bg-muted/30" ref={ref}>
@@ -22,9 +24,9 @@ export function Contact() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-serif text-4xl md:text-5xl font-light mb-4">Get In Touch</h2>
+          <h2 className="font-serif text-4xl md:text-5xl font-light mb-4">{t("contact.title")}</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Ready to start your skincare journey? Book your appointment today.
+            {t("contact.subtitle")}
           </p>
         </motion.div>
 
@@ -36,20 +38,20 @@ export function Contact() {
           >
             <Card>
               <CardHeader>
-                <CardTitle>Send us a message</CardTitle>
-                <CardDescription>Fill out the form and we'll get back to you shortly.</CardDescription>
+                <CardTitle>{t("contact.form.title")}</CardTitle>
+                <CardDescription>{t("contact.form.description")}</CardDescription>
               </CardHeader>
               <CardContent>
                 <form className="space-y-4">
                   <div className="grid md:grid-cols-2 gap-4">
-                    <Input placeholder="First Name" />
-                    <Input placeholder="Last Name" />
+                    <Input placeholder={t("contact.form.firstName")} />
+                    <Input placeholder={t("contact.form.lastName")} />
                   </div>
-                  <Input type="email" placeholder="Email" />
-                  <Input type="tel" placeholder="Phone" />
-                  <Textarea placeholder="Message" rows={5} />
+                  <Input type="email" placeholder={t("contact.form.email")} />
+                  <Input type="tel" placeholder={t("contact.form.phone")} />
+                  <Textarea placeholder={t("contact.form.message")} rows={5} />
                   <Button type="submit" className="w-full">
-                    Send Message
+                    {t("contact.form.submit")}
                   </Button>
                 </form>
               </CardContent>
@@ -68,7 +70,7 @@ export function Contact() {
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-medium mb-1">Location</h3>
+                  <h3 className="font-medium mb-1">{t("contact.location")}</h3>
                   <p className="text-sm text-muted-foreground">Hamilton, New Jersey</p>
                 </div>
               </div>
@@ -102,7 +104,7 @@ export function Contact() {
                   <Clock className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-medium mb-1">Hours</h3>
+                  <h3 className="font-medium mb-1">{t("contact.hours")}</h3>
                   <p className="text-sm text-muted-foreground">Mon-Sat: 9AM-6PM</p>
                   <p className="text-sm text-muted-foreground">Sun: Closed</p>
                 </div>

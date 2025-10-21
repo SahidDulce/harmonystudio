@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Cormorant_Garamond, Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
+import { LanguageProvider } from "@/contexts/language-context"
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -16,7 +17,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: " Harmony Studio",
+  title: "Harmony Studio",
   description:
     "Experience personalized aesthetic treatments with expert care. Specializing in facials, skincare, and beauty services.",
   generator: "v0.app",
@@ -30,7 +31,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${cormorant.variable} font-sans antialiased`}>
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
         <Analytics />
       </body>
     </html>

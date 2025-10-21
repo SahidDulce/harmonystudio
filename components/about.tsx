@@ -3,10 +3,12 @@
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
+import { useLanguage } from "@/contexts/language-context"
 
 export function About() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const { t } = useLanguage()
 
   return (
     <section id="about" className="py-20 px-4" ref={ref}>
@@ -31,7 +33,7 @@ export function About() {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h2 className="font-serif text-4xl md:text-5xl font-light">Meet Margarita</h2>
+            <h2 className="font-serif text-4xl md:text-5xl font-light">{t("about.title")}</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
                 As a licensed esthetician with a passion for skincare, I'm dedicated to helping you achieve your best

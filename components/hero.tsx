@@ -2,8 +2,11 @@
 
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
+import { useLanguage } from "@/contexts/language-context"
 
 export function Hero() {
+  const { t } = useLanguage()
+
   const scrollToContact = () => {
     const element = document.getElementById("contact")
     if (element) {
@@ -22,14 +25,14 @@ export function Hero() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-light leading-tight text-balance">
-              Harmony Studio
+              {t("hero.title")}
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-              Your sanctuary for beauty and wellness. Experience professional care tailored to your unique needs.
+              {t("hero.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button size="lg" onClick={scrollToContact}>
-                Book Your Consultation
+                {t("hero.consultation")}
               </Button>
               <Button
                 size="lg"
@@ -39,7 +42,7 @@ export function Hero() {
                   if (element) element.scrollIntoView({ behavior: "smooth" })
                 }}
               >
-                View Services
+                {t("hero.viewServices")}
               </Button>
             </div>
           </motion.div>

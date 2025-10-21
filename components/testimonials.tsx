@@ -5,6 +5,7 @@ import { Star } from "lucide-react"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
+import { useLanguage } from "@/contexts/language-context"
 
 const testimonials = [
   {
@@ -27,6 +28,7 @@ const testimonials = [
 export function Testimonials() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const { t } = useLanguage()
 
   return (
     <section id="testimonials" className="py-20 px-4" ref={ref}>
@@ -37,7 +39,7 @@ export function Testimonials() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-serif text-4xl md:text-5xl font-light mb-4">Client Love</h2>
+          <h2 className="font-serif text-4xl md:text-5xl font-light mb-4">{t("testimonials.title")}</h2>
           <p className="text-muted-foreground text-lg">What our clients say about us</p>
         </motion.div>
 

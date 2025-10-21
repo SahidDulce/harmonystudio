@@ -4,10 +4,13 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Phone, Mail, Clock } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import { LanguageToggle } from "@/components/language-toggle"
+import { useLanguage } from "@/contexts/language-context"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const { t } = useLanguage()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +41,7 @@ export function Header() {
         <div className="container mx-auto px-4 py-2">
           <div className="flex items-center justify-between text-sm">
             <div className="hidden md:flex items-center gap-6">
-              <a href="tel:+17604341000" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+              <a href="tel:+16099431580" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
                 <Phone size={14} />
                 <span>(609) 943-1580</span>
               </a>
@@ -50,9 +53,12 @@ export function Header() {
                 <span>info@harmonystudio.com</span>
               </a>
             </div>
-            <div className="flex items-center gap-2 ml-auto">
-              <Clock size={14} />
-              <span className="text-xs md:text-sm">Mon-Sat: 9AM-6PM | Sun: Closed</span>
+            <div className="flex items-center gap-4 ml-auto">
+              <LanguageToggle />
+              <div className="flex items-center gap-2">
+                <Clock size={14} />
+                <span className="text-xs md:text-sm">Mon-Sat: 9AM-6PM | Sun: Closed</span>
+              </div>
             </div>
           </div>
         </div>
@@ -82,30 +88,30 @@ export function Header() {
             <nav className="hidden md:flex items-center gap-8">
               <button
                 onClick={() => scrollToSection("services")}
-                className="text-sm text-foreground/80 hover:text-foreground transition-colors"
+                className="text-base text-foreground/80 hover:text-foreground transition-colors"
               >
-                Services
+                {t("nav.services")}
               </button>
               <button
                 onClick={() => scrollToSection("about")}
-                className="text-sm text-foreground/80 hover:text-foreground transition-colors"
+                className="text-base text-foreground/80 hover:text-foreground transition-colors"
               >
-                About
+                {t("nav.about")}
               </button>
               <button
                 onClick={() => scrollToSection("gallery")}
-                className="text-sm text-foreground/80 hover:text-foreground transition-colors"
+                className="text-base text-foreground/80 hover:text-foreground transition-colors"
               >
-                Gallery
+                {t("nav.gallery")}
               </button>
               <button
                 onClick={() => scrollToSection("testimonials")}
-                className="text-sm text-foreground/80 hover:text-foreground transition-colors"
+                className="text-base text-foreground/80 hover:text-foreground transition-colors"
               >
-                Testimonials
+                {t("nav.testimonials")}
               </button>
               <Button onClick={() => scrollToSection("contact")} size={isScrolled ? "sm" : "default"}>
-                Book Appointment
+                {t("nav.book")}
               </Button>
             </nav>
 
@@ -126,30 +132,30 @@ export function Header() {
               >
                 <button
                   onClick={() => scrollToSection("services")}
-                  className="text-left text-foreground/80 hover:text-foreground transition-colors"
+                  className="text-left text-base text-foreground/80 hover:text-foreground transition-colors"
                 >
-                  Services
+                  {t("nav.services")}
                 </button>
                 <button
                   onClick={() => scrollToSection("about")}
-                  className="text-left text-foreground/80 hover:text-foreground transition-colors"
+                  className="text-left text-base text-foreground/80 hover:text-foreground transition-colors"
                 >
-                  About
+                  {t("nav.about")}
                 </button>
                 <button
                   onClick={() => scrollToSection("gallery")}
-                  className="text-left text-foreground/80 hover:text-foreground transition-colors"
+                  className="text-left text-base text-foreground/80 hover:text-foreground transition-colors"
                 >
-                  Gallery
+                  {t("nav.gallery")}
                 </button>
                 <button
                   onClick={() => scrollToSection("testimonials")}
-                  className="text-left text-foreground/80 hover:text-foreground transition-colors"
+                  className="text-left text-base text-foreground/80 hover:text-foreground transition-colors"
                 >
-                  Testimonials
+                  {t("nav.testimonials")}
                 </button>
                 <Button onClick={() => scrollToSection("contact")} className="w-full">
-                  Book Appointment
+                  {t("nav.book")}
                 </Button>
               </motion.nav>
             )}

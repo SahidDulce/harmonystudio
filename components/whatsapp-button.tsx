@@ -2,10 +2,12 @@
 
 import { MessageCircle } from "lucide-react"
 import { motion } from "framer-motion"
+import { useLanguage } from "@/contexts/language-context"
 
 export function WhatsAppButton() {
-  const phoneNumber = "16099431580" // Formato: código país + número sin espacios ni guiones
-  const message = "Hola, me gustaría agendar una cita en Harmony Studio"
+  const { t } = useLanguage()
+  const phoneNumber = "16099431580"
+  const message = t("whatsapp.message")
 
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
 
